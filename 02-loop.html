@@ -106,41 +106,101 @@
 
 let gameRunning = false;
 
+
+// ui
+const btnStartStop = document.getElementById("startStop");
+
+
+function gameStart(){
+    //
+    btnStartStop.textContent = "STOP";
+    gameRunning = true;
+}
+function gameStop(){
+    //
+    btnStartStop.textContent = "START";
+    gameRunning = false;
+}
+
+
+
+
+
+
+
+
+// UI and interactions
+
 // click on start/stop button
+btnStartStop.addEventListener('click', () => {
+    if (gameRunning) {
+        gameStop();
+    } else {
+        gameStart();
+    }
+    // decided to do all the UI and switching gameRunning in game functions
+});
 
-// spacebar pressed
+// keydown functions
+function keyPressedSpace() {
+    btnStartStop.click();
+}
 
-// direction keys pressed
+function keyPressedUp() {
+    //
+}
 
+function keyPressedDown() {
+    //
+}
 
+function keyPressedLeft() {
+    //
+}
+
+function keyPressedRight() {
+    //
+}
+
+// keyboard events
 document.addEventListener('keydown', (e) => {
     e.preventDefault();
     switch (e.code) {
+        // direction keys pressed
         case "KeyS":
         case "ArrowDown":
             console.log("keyboard: down");
+            keyPressedDown();
             break;
         case "KeyW":
         case "ArrowUp":
             console.log("keyboard: up");
+            keyPressedUp();
             break;
         case "KeyA":
         case "ArrowLeft":
             console.log("keyboard: left");
+            keyPressedLeft();
             break;
         case "KeyD":
         case "ArrowRight":
             console.log("keyboard: right");
+            keyPressedRight();
             break;
+        // spacebar pressed
         case "Space":
             console.log("keyboard: space");
+            keyPressedSpace();
             break;
+        // Escape pressed
         case "Escape":
             console.log("keyboard: esc");
             break;
+        // Tab pressed
         case "Tab":
             console.log("keyboard: tab");
             break;
+        // Enter pressed
         case "Enter":
             console.log("keyboard: enter");
             break;
