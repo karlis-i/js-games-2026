@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="lv">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>JS Spēles - 2</title>
+        <meta name="description" content="JavaScript Spēles 2026. g. rudenī - VeA STEM klubam">
+
+        <style>
+            /* vars */
+            :root {
+                --font: monospace;
+
+                /* https://colorhunt.co/palette/000000233d4dfe7f2deaecf0 */
+                --bg: #000;
+                --fg: #EAECF0;
+                --acc: #FE7F2D;
+                --mid: #233D4D;
+
+                /* https://colorhunt.co/palette/253c6d30497d455b8af2842f */
+                --bg: #253C6D;
+                /* --fg: #455B8A; */
+                --fg: #C5CAE9;
+                --acc: #F2842F;
+                --mid: #30497D;
+            }
+
+            /* reset */
+            * {
+                box-sizing: border-box;
+            }
+
+            html {
+                font-family: var(--font);
+                font-size: 16px;
+                color: var(--fg);
+                line-height: 1.5;
+            }
+
+            body {
+                margin: 0;
+                background-color: var(--bg);
+            }
+
+            /* interface */
+            article {
+                margin: 1rem auto;
+                padding: 0.5rem;
+                width: 40rem;
+            }
+
+            #gameScreen {
+                width: 40rem;
+                height: 22.5rem;
+                /* 640 x 360 = 16:9 */
+
+                border: 1px solid var(--mid);
+            }
+
+            #startStop {
+                padding: 0.5rem 1rem;
+                display: block;
+                margin: 1rem auto;
+                border: 1px solid var(--acc);
+                border-radius: 0.25rem;
+                background-color: var(--mid);
+                color: var(--fg);
+                font-weight: bold;
+                box-shadow: 0 0 1rem var(--acc);
+
+                &:hover {
+                    cursor: pointer;
+                    color: var(--bg);
+                    background-color: var(--acc);
+                }
+            }
+
+            kbd {
+                border: 1px solid var(--fg);
+                border-radius: 0.25rem;
+                padding: 0 0.25rem;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <article>
+            <h1>Spēle 2</h1>
+
+            <section id="gameScreen"></section>
+
+            <section>
+                <button id="startStop">START</button>
+            </section>
+
+            <section>
+                <p>Spied <kbd>SPACE</kbd> un <kbd>W</kbd>, <kbd>A</kbd>, <kbd>S</kbd>, <kbd>D</kbd></p>
+            </section>
+        </article>
+
+
+<script>
+'use strict';
+
+let gameRunning = false;
+
+// click on start/stop button
+
+// spacebar pressed
+
+// direction keys pressed
+
+
+document.addEventListener('keydown', (e) => {
+    e.preventDefault();
+    switch (e.code) {
+        case "KeyS":
+        case "ArrowDown":
+            console.log("keyboard: down");
+            break;
+        case "KeyW":
+        case "ArrowUp":
+            console.log("keyboard: up");
+            break;
+        case "KeyA":
+        case "ArrowLeft":
+            console.log("keyboard: left");
+            break;
+        case "KeyD":
+        case "ArrowRight":
+            console.log("keyboard: right");
+            break;
+        case "Space":
+            console.log("keyboard: space");
+            break;
+        case "Escape":
+            console.log("keyboard: esc");
+            break;
+        case "Tab":
+            console.log("keyboard: tab");
+            break;
+        case "Enter":
+            console.log("keyboard: enter");
+            break;
+    }
+});
+
+// tab hidden
+document.addEventListener('visibilitychange', () => {
+    if (document.hidden && gameRunning) {
+        // stop or pause game
+        // @todo
+    }
+});
+
+</script>
+    </body>
+</html>

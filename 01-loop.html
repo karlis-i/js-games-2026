@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="lv">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>JS Spēles - 1</title>
+        <meta name="description" content="JavaScript Spēles 2026. g. rudenī - VeA STEM klubam">
+
+        <style>
+            /* vars */
+            :root {
+                --font: monospace;
+
+                /* https://colorhunt.co/palette/000000233d4dfe7f2deaecf0 */
+                --bg: #000;
+                --fg: #EAECF0;
+                --acc: #FE7F2D;
+                --mid: #233D4D;
+
+                /* https://colorhunt.co/palette/253c6d30497d455b8af2842f */
+            }
+
+            /* reset */
+            * {
+                box-sizing: border-box;
+            }
+
+            html {
+                font-family: var(--font);
+                font-size: 16px;
+                color: var(--fg);
+                line-height: 1.5;
+            }
+
+            body {
+                margin: 0;
+                background-color: var(--bg);
+            }
+
+            /* interface */
+            article {
+                margin: 1rem auto;
+                padding: 0.5rem;
+                width: 40rem;
+            }
+
+            #gameScreen {
+                width: 40rem;
+                height: 22.5rem;
+                /* 640 x 360 = 16:9 */
+
+                border: 1px solid var(--mid);
+            }
+
+            #startStop {
+                padding: 0.5rem 1rem;
+                display: block;
+                margin: 1rem auto;
+                border: 1px solid var(--acc);
+                border-radius: 0.25rem;
+                background-color: var(--mid);
+                color: var(--fg);
+                font-weight: bold;
+                box-shadow: 0 0 1rem var(--acc);
+
+                &:hover {
+                    cursor: pointer;
+                    color: var(--bg);
+                    background-color: var(--acc);
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <article>
+            <h1>Spēle 1</h1>
+
+            <section id="gameScreen"></section>
+
+            <section>
+                <button id="startStop">START</button>
+            </section>
+
+            <section>
+                <p>Spied <kbd>W</kbd>, <kbd>A</kbd>, <kbd>S</kbd>, <kbd>D</kbd></p>
+            </section>
+        </article>
+
+
+<script>
+
+let gameScreen = document.getElementById("gameScreen");
+let timestampPrev = Date.now();
+
+// gameScreen.innerHTML = (gameScreen.innerHTML + '.');
+
+;(() => {
+    function main() {
+        MyGame.stopMain = window.requestAnimationFrame(main);
+
+        // Your main loop contents
+        let timestampCurrent = Date.now();
+        let timestampDiff = timestampCurrent - timestampPrev;
+        timestampPrev = timestampCurrent;
+
+        // gameScreen.innerHTML = timestampDiff;
+        gameScreen.innerHTML = `seconds elapsed = ${Math.floor(timestampDiff / 1000)}`
+    }
+
+    main(); // Start the cycle
+})();
+
+</script>
+    </body>
+</html>
