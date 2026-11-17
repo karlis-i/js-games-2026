@@ -125,6 +125,26 @@ function gameStop(){
 
 
 
+// https://gameprogrammingpatterns.com/game-loop.html
+
+function processInput() {
+    //
+}
+function update() {
+    //
+}
+function render() {
+    //
+}
+
+function gameLoop() { // bet kur šim jābūt???
+    while (gameRunning) {
+        processInput();
+        update();
+        render();
+    }
+}
+
 
 
 
@@ -211,9 +231,12 @@ document.addEventListener('keydown', (e) => {
 document.addEventListener('visibilitychange', () => {
     if (document.hidden && gameRunning) {
         // stop or pause game
-        // @todo
+        gameStop();
     }
 });
+
+// apparently, initial render
+render();
 
 </script>
     </body>
